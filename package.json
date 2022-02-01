@@ -1,13 +1,13 @@
 {
-  "name": "smart-contract-boilerplate",
-  "description": "A smart-contract-boilerplate",
+  "name": "smart-contract-kap721",
+  "description": "A smart-contract-kap721",
   "version": "1.0.0",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
     "compile": "npx hardhat compile",
-    "test": "npx hardhat test",
+    "test": "npx hardhat test --verbose",
     "lint": "npx solhint 'contracts/**/*.sol' && eslint \"{scripts,task,libs,__test__}/**/*.ts\""
   },
   "keywords": [],
