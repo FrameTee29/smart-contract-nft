@@ -1,19 +1,15 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Greeter", function () {
-  it("Should return the new greeting once it's changed", async function () {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
-    await greeter.deployed();
+describe("GNFT", function () {
+  it("Should create GNFT", async function () {
+    const Gnft = await ethers.getContractFactory("GNFT");
+    const gnft = await Gnft.deploy();
+    await gnft.deployed();
 
-    expect(await greeter.greet()).to.equal("Hello, world!");
+    await gnft.create(1, "https://google.com");
+    const totalSupply = await gnft.totalSupply();
 
-    const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
-
-    // wait until the transaction is mined
-    await setGreetingTx.wait();
-
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+    expect(totalSupply).to.equal(1);
   });
 });
