@@ -7,7 +7,7 @@
   },
   "scripts": {
     "compile": "npx hardhat compile",
-    "test": "npx hardhat test --verbose",
+    "test": "npx hardhat test",
     "lint": "npx solhint 'contracts/**/*.sol' && eslint \"{scripts,task,libs,__test__}/**/*.ts\""
   },
   "keywords": [],

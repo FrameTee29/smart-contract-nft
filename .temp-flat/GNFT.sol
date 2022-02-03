@@ -407,7 +407,7 @@ abstract contract KAP721 is
 pragma solidity ^0.8.0;
 contract GNFT is KAP721 {
     
-    constructor() KAP721("Frame NFT","FNFT"){}
+    constructor() KAP721("Game NFT","GNFT"){}
 
     function create(uint tokenId,string memory uri ) public{
         _mint(msg.sender,tokenId,uri);
