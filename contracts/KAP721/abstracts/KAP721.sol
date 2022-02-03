@@ -6,13 +6,13 @@ import "../interfaces/IKAP721Enumerable.sol";
 import "../interfaces/IKAP721TokenReceiver.sol";
 
 import "../../KAP165/interfaces/IKAP165.sol";
-import "../../KAP1155/interfaces/IKAP1155Metadata_URI.sol";
+import "../../KAP1155/interfaces/IKAP1155MetadataURI.sol";
 
 abstract contract KAP721 is
     IKAP165,
     IKAP721,
     IKAP721Metadata,
-    IKAP1155Metadata_URI,
+    IKAP1155MetadataURI,
     IKAP721Enumerable
 {
     mapping(address => uint256) _balances; // counter my items; owner => balance;
@@ -68,7 +68,7 @@ abstract contract KAP721 is
             interfaceId == type(IKAP165).interfaceId ||
             interfaceId == type(IKAP721).interfaceId ||
             interfaceId == type(IKAP721Metadata).interfaceId ||
-            interfaceId == type(IKAP1155Metadata_URI).interfaceId ||
+            interfaceId == type(IKAP1155MetadataURI).interfaceId ||
             interfaceId == type(IKAP721Enumerable).interfaceId;
     }
 
