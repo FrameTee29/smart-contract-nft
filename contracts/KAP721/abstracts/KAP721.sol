@@ -29,7 +29,7 @@ abstract contract KAP721 is
     mapping(uint256 => uint256) _allTokensIndex; // tokenId => index
 
     //Owner Enumeration
-    mapping(address => mapping(uint256 => uint256)) _omwedTokens; // owener => (index=>tokenId)
+    mapping(address => mapping(uint256 => uint256)) _ownedTokens; // owner => (index=>tokenId)
     mapping(uint256 => uint256) _ownedTokensIndex; // tokenId => index
 
     constructor(string memory name_, string memory symbol_) {
@@ -197,7 +197,7 @@ abstract contract KAP721 is
         returns (uint256)
     {
         require(index < _balances[owner], "index out of bounds");
-        return _omwedTokens[owner][index];
+        return _ownedTokens[owner][index];
     }
 
     // =====> Private Or Internal Function <=====
@@ -312,7 +312,7 @@ abstract contract KAP721 is
         private
     {
         uint256 index = _balances[owner] - 1;
-        _omwedTokens[owner][index] = tokenId;
+        _ownedTokens[owner][index] = tokenId;
         _ownedTokensIndex[tokenId] = index;
     }
 
@@ -323,12 +323,12 @@ abstract contract KAP721 is
         uint256 indexLast = _balances[owner];
 
         if (index < indexLast) {
-            uint256 idLast = _omwedTokens[owner][indexLast];
-            _omwedTokens[owner][index] = idLast;
+            uint256 idLast = _ownedTokens[owner][indexLast];
+            _ownedTokens[owner][index] = idLast;
             _ownedTokensIndex[idLast] = index;
         }
 
-        delete _omwedTokens[owner][indexLast];
+        delete _ownedTokens[owner][indexLast];
         delete _ownedTokensIndex[tokenId];
     }
 }
