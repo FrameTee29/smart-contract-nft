@@ -1,6 +1,7 @@
 import fs from "fs";
 
 import { ethers, artifacts } from "hardhat";
+/* eslint-disable */
 import { Bullet } from "../typechain/Bullet";
 
 async function main() {

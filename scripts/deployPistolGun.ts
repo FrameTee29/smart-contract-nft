@@ -1,6 +1,7 @@
 import fs from "fs";
 
 import { ethers, artifacts } from "hardhat";
+/* eslint-disable */
 import { GNFT } from "../typechain/GNFT";
 
 async function main() {

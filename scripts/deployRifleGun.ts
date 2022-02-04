@@ -1,6 +1,7 @@
 import fs from "fs";
 
 import { ethers, artifacts } from "hardhat";
+/* eslint-disable */
 import { GNFT } from "../typechain/GNFT";
 
 async function main() {
@@ -18,7 +19,7 @@ async function main() {
 
 function saveContract(gnft: GNFT, name: string) {
   const path = __dirname + `/../shared/gun-contracts/${name.toLowerCase()}Gun`;
-  console.log(path)
+  console.log(path);
   if (!fs.existsSync(path)) {
     fs.mkdirSync(path);
 
