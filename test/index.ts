@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 describe("GNFT", function () {
   it("Should create GNFT", async function () {
     const Gnft = await ethers.getContractFactory("GNFT");
-    const gnft = await Gnft.deploy();
+    const gnft = await Gnft.deploy("Gun", "NFT");
     await gnft.deployed();
 
     await gnft.create(1, "https://google.com");
